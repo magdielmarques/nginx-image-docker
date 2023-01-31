@@ -1,6 +1,6 @@
 FROM node:latest
 
-WORKDIR /application
+WORKDIR /usr/src/app
 
 COPY . .
 
