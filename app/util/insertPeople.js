@@ -1,5 +1,5 @@
 const insertPeople = () => {
-  const dbConfig = require("../config");
+  const dbConfig = require("./config");
   const mysql = require("mysql");
 
   const connection = mysql.createConnection(dbConfig);
