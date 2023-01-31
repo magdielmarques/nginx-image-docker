@@ -2,7 +2,7 @@ FROM node:latest
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY ../ .
 
 EXPOSE 3000
 

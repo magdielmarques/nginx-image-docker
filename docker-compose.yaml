@@ -1,0 +1,40 @@
+version: '3.1'
+
+services:
+
+  app:
+    build:
+      context: ./src
+    container_name: node-app
+    networks:
+      - node-network
+    volumes:
+      - ./src:/usr/src/app
+    tty: true
+    ports:
+      - "3000:3000"
+
+  # db:
+  #   image: mysql
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   container_name: db-mysql
+  #   restart: always
+  #   tty: true
+  #   volumes:
+  #     - ./mysql:/var/lib/mysql
+  #   environment:
+  #     MYSQL_DATABASE: nodedb
+  #     MYSQL_ROOT_PASSWORD: root
+  #   networks:
+  #     - node-network
+
+  # nginx:
+  #   build:
+  #     context: ./nginx
+  #   container_name: nginx-app
+  #   ports:
+  #     - "8080:80"
+
+networks:
+  node-network:
+    driver: bridge
