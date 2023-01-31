@@ -5,7 +5,7 @@ const server = () => {
 
   const PORT = 3000;
 
-  application.get("/", (res) => {
+  application.get("/", (req, res) => {
     res.send("<h1>Full Cycle Rocks!</h1>");
   });
 
