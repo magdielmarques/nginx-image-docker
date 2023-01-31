@@ -1,4 +1,5 @@
-const runServer = () => {
+const server = () => {
+  const insertPeople = require("./util/insertPeople");
   const express = require("express");
   const application = express();
 
@@ -11,6 +12,8 @@ const runServer = () => {
   application.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
+
+  // insertPeople();
 };
 
-module.exports = runServer;
+module.exports = server;
