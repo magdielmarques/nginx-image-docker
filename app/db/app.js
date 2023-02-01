@@ -1,9 +1,9 @@
 const app = () => {
+  const database = require("./dbConnection");
   const express = require("express");
   const app = express();
   const PORT = 3000;
 
-  const database = require("./dbConnection");
   database();
 
   app.get("/", (req, res) => {
