@@ -1,3 +1,3 @@
-const runServer = require("./server.js");
+const app = require("./db/app");
 
-runServer();
+app();
