@@ -1,10 +1,10 @@
 const peopleNames = [
   "Maria",
-  "João",
+  "Joao",
   "Lucas",
   "Carlos",
-  "José",
-  "Flávia",
+  "Jose",
+  "Flavia",
   "Luiz",
   "Alfreado",
   "Amanda",
@@ -17,6 +17,7 @@ const peopleNames = [
   "Juninho",
   "Eduardo",
   "Celso",
+  "Junior",
 ];
 
 module.exports = peopleNames;

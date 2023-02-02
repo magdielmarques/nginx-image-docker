@@ -31,6 +31,15 @@ class dbConnection {
       else console.log(`Successfully added value into table`);
     });
   }
+
+  read() {
+    const sql = "SELECT * FROM people";
+
+    this._connection.query(sql, (error, result, fields) => {
+      if (error) console.log("Error", error);
+      return result;
+    });
+  }
 }
 
 module.exports = dbConnection;
