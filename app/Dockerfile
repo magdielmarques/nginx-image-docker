@@ -1,16 +1,19 @@
 FROM node:latest
 
-RUN apt-get update && apt-get install -y wget
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN npm install
+
+RUN apt-get update && npm install  && apt-get install -y wget
+
+ENV NODE_PATH=/usr/src/app/node_modules
 
 ENV DOCKERIZE_VERSION v0.6.1
 RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-WORKDIR /usr/src/app
-
-COPY . .
-
-RUN npm install
 
 EXPOSE 3000
