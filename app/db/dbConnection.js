@@ -32,13 +32,17 @@ class dbConnection {
     });
   }
 
-  read() {
-    const sql = "SELECT * FROM people";
+  async read() {
+    const sql = "SELECT name FROM people;";
 
-    this._connection.query(sql, (error, result, fields) => {
-      if (error) console.log("Error", error);
-      return result;
+    const response = new Promise((resolve, reject) => {
+      this._connection.query(sql, (error, result) => {
+        if (error) console.log("Error", error);
+        resolve(result);
+      });
     });
+
+    return response;
   }
 }
 

@@ -13,11 +13,20 @@ const app = () => {
   database.connect();
   database.createTable();
 
-  app.get("/", (req, res) => {
+  app.get("/", async (req, res) => {
     database.insertValue(
       peoplesNames[Math.floor(Math.random() * peoplesNames.length)]
     );
-    res.send("<h1>Full Cycle Rocks!</h1>");
+
+    const namesList = await database.read();
+
+    res.send(
+      `<h1>Full Cycle Rocks!</h1>
+      <h4> - Lista de nomes cadastrada no banco de dados. </h4>
+      ${namesList.map(
+        (item, index) => `<br/> ${String(index + 1)} - ${String(item.name)}`
+      )}`
+    );
   });
 
   app.listen(PORT, () => {
